@@ -80,6 +80,7 @@ router.get("/items", (req, res) => {
 })
 
 router.post('/add_new_item', upload.array("plant_image", 3), (req, res, next) => {
+    console.log()
     if(req.files){
         const all_files = req.files;
         const promises = []
@@ -104,7 +105,8 @@ router.post('/add_new_item', upload.array("plant_image", 3), (req, res, next) =>
 
             items_rf.update(data)
             console.log("items have been uploaded succesfully!!")
-            return res.status(200).send("added succefully!!! Go to admin dashboard <a href='http://localhost:5000/admin/'>click here</a>")
+            return res.status(200).send("added succefully!!! Go to admin dashboard <a href='http://18.220.75.192:5000/admin/'>click here</a>")
+            // return res.status(200).send({"message": "successfully added!!"})
         })
     } else{
         return res.status(500).send("Bad Request, No files attached in the request")
@@ -123,7 +125,7 @@ router.post('/add_new_item', upload.array("plant_image", 3), (req, res, next) =>
     }
     Promise.all(promises).then((messages) => {
         console.log("items have been deleted!!")
-        return res.status(200).send(`Successfully deleted!! Go to admin dashboard <a href='http://localhost:5000/admin/'>click here</a>`)
+        return res.status(200).send(`Successfully deleted!! Go to admin dashboard <a href='http://18.220.75.192:5000/admin/'>click here</a>`)
     }).catch((err) => {
         console.log("items have not been deleted!!")
         return res.status(500).send({"message": "delete error"})
