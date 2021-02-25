@@ -17,6 +17,12 @@ app.get("/", (req, res) => {
     res.status(404).send("Page not found error")
 })
 
+process.on('SIGINT', function() {
+    console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
+    // some other closing procedures go here
+    process.exit(1);
+});
+
 
 app.listen(3000)
-console.log("port 3000 is runing..")
+console.log("The API is live on 3000!!!")
