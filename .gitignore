@@ -8,6 +8,9 @@ lerna-debug.log*
 
 # mac folder metadata
 .DS_store
+# custom
+mom.md
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
