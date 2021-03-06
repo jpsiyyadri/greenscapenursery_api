@@ -51,7 +51,7 @@ router.get("/items", (req, res) => {
             let child_obj = child.val() 
             data_dict["plant_name"] = child_obj["name"]
             data_dict["plant_description"] = child_obj["description"]
-            data_dict["plant_description_category"] = child_obj["description_category"]
+            data_dict["plant_height"] = child_obj["height"]
             data_dict["plant_category_type"] = child_obj["category_type"]
             data_dict["plant_bag_size"] = child_obj["bag_size"]
             data_dict["plant_price"] = child_obj["price"]
@@ -91,7 +91,7 @@ router.post('/add_new_item', upload.array("plant_image", 5), (req, res, next) =>
                 "name": req.body.plant_name || 'default_plant_name',
                 "description": req.body.plant_description || 'default_description',
                 "category_type": req.body.plant_category_type || 'default_category',
-                "description_category": req.body.plant_description_category || 'default_description_category',
+                "height": req.body.plant_height || 'default_height',
                 "price": req.body.plant_price || 'default_price',
                 "bag_size": req.body.plant_bag_size || 'default_bag_size',
                 "date": moment().format("D-MM-yyyy h:mm:ss")
