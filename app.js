@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const body_parser = require("body-parser");
 const itemRoutes = require("./routers/item");
+const categoryRoutes = require("./routers/category");
 const customLogger = require("./util/logger");
 const logger = customLogger("API")
 const cur_file_name = console.log(__filename.split("/").slice(-1)[0])
@@ -21,7 +22,7 @@ app.use(body_parser.urlencoded({"extended": false}));
 app.use(express.static(path.join(__dirname, "public")))
 
 app.use("/api", itemRoutes)
-
+app.use("/api/category", categoryRoutes)
 
 app.get("/", (req, res) => {
     res.status(404).send("Page not found error")

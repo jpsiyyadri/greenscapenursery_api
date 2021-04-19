@@ -132,7 +132,6 @@ router.post('/add_new_item', upload.array("plant_image", 5), (req, res, next) =>
     })
 })
 
-
 router.get("/categories", (req, res) => {
     const urlObject = url.parse(req.url, true).query
 
@@ -154,6 +153,7 @@ router.get("/categories", (req, res) => {
         return res.status(200).send(data)
     })
 })
+
 
 async function deleteItemAsPromise(id_val){
     logger.info({"filename": cur_file_name, "message": `executing`, "function": "deleteItemAsPromise", "data": JSON.stringify({"id": id_val}), "endpoint": "/api/delete", "type": "get"})
