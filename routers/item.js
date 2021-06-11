@@ -28,7 +28,7 @@ const bucket = storage.bucket(process.env.storageBucket)
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: {
-        fileSize: 5 * 1024 * 1024 // limits 5 MB
+        fileSize: 5 * 2 * 1024 * 1024 // limits 5 MB
     }
 })
 
